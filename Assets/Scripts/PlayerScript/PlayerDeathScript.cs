@@ -11,7 +11,7 @@ public class PlayerDeath : MonoBehaviour
     Collider2D feet;
     private void Start()
     {
-        body = GetComponent<CapsuleCollider2D>();
+        body = GetComponent<PolygonCollider2D>();
         feet = GetComponent<BoxCollider2D>();
     }
 

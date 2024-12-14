@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
 
     void Start()
+
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -31,16 +32,20 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-      
-        if(IsGrounded() && !Input.GetButton("Jump"))
+
+
+
+        if (IsGrounded() && !Input.GetButton("Jump"))
+
         {
             doubleJump = false;
         }
 
-        
+
         if (Input.GetButtonDown("Jump") && !isjumping)
         {
-            if(IsGrounded() || doubleJump)
+
+            if (IsGrounded() || doubleJump)
 
                 FlipSprite();
             {
@@ -48,10 +53,13 @@ public class PlayerMovement : MonoBehaviour
 
                 doubleJump = !doubleJump;
             }
-           
+
         }
 
-        if(Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
+
+
+        if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
+
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
@@ -110,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
             isWallSliding = false;
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
